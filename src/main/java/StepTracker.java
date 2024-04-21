@@ -3,28 +3,29 @@ public class StepTracker
 {
  private int minsteps, totalsteps;
  private int totaldays, activedays;
- public StepTracker(int steps){
-  minsteps = steps;
+ public StepTracker(int goal){
+  minsteps = goal;
   totalsteps = 0;
   totaldays = 0;
   activedays = 0;
  }
-  public int activeDays(){
-  return activedays;
- }
- public void addDailySteps(int dailystep){
-  totalsteps += dailystep;
+
+ public void addDailySteps(int steps){
+  totalsteps += steps;
   totaldays++;
-  if(dailystep >= minSteps){
+  if(steps >= minsteps){
    activedays++;
   }
+ }
+   public int activeDays(){
+  return activedays;
  }
  public double averageSteps(){
  if(totaldays == 0){
  return 0.0;
 }
 else{
- return (double)totalSteps/totalDays;
+ return (double)totalsteps/totaldays;
 }
  }
 }
